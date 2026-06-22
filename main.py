@@ -10,23 +10,5 @@ message = orchestrator.start_conversation(
     niche=niche,
 )
 
-print("\n--- PRIMEIRA MENSAGEM ---\n")
+print("\n=== PRIMEIRA ABORDAGEM ===\n")
 print(message)
-
-history = ""
-
-while True:
-    lead_message = input("\nCliente: ")
-
-    response = orchestrator.continue_conversation(
-        company_name=company,
-        niche=niche,
-        conversation_history=history,
-        lead_message=lead_message,
-    )
-
-    print("\nSDR:\n")
-    print(response)
-
-    history += f"\nLead: {lead_message}"
-    history += f"\nSDR: {response}"

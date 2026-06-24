@@ -1,16 +1,13 @@
 class AIService:
     def generate(self, prompt: str) -> str:
 
-        if "diagnostic" in prompt:
-            return "Olá! Quem normalmente responde os interessados que entram em contato pelo WhatsApp?"
+        if "Quem está falando" in prompt:
+            return "Prazer! Meu nome é Vinicius. Posso te fazer uma pergunta rápida sobre como vocês atendem novos interessados?"
 
-        if "curiosity" in prompt:
-            return "Olá! Posso te fazer uma pergunta rápida sobre o atendimento da academia?"
+        if "Como funciona" in prompt:
+            return "Antes de explicar, fiquei curioso: hoje quem normalmente responde os contatos que chegam pelo WhatsApp?"
 
-        if "pain" in prompt:
-            return "Olá! Vocês conseguem responder todos os interessados ainda no mesmo dia?"
+        if "Não tenho interesse" in prompt:
+            return "Sem problemas. Só por curiosidade, vocês já estão satisfeitos com o processo atual de atendimento?"
 
-        if "comparison" in prompt:
-            return "Olá! Hoje vocês recebem mais contatos pelo WhatsApp ou Instagram?"
-
-        return "Olá!"
+        return "Entendi. Me conta um pouco mais sobre como funciona hoje."

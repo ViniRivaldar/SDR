@@ -1,13 +1,23 @@
+import os
+
+from dotenv import load_dotenv
+from google import genai
+
+load_dotenv()
+
+
 class AIService:
+
+    def __init__(self):
+        self.client = genai.Client(
+            api_key=os.getenv("GEMINI_API_KEY")
+        )
+
     def generate(self, prompt: str) -> str:
 
-        if "Quem está falando" in prompt:
-            return "Prazer! Meu nome é Vinicius. Posso te fazer uma pergunta rápida sobre como vocês atendem novos interessados?"
+        response = self.client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+        )
 
-        if "Como funciona" in prompt:
-            return "Antes de explicar, fiquei curioso: hoje quem normalmente responde os contatos que chegam pelo WhatsApp?"
-
-        if "Não tenho interesse" in prompt:
-            return "Sem problemas. Só por curiosidade, vocês já estão satisfeitos com o processo atual de atendimento?"
-
-        return "Entendi. Me conta um pouco mais sobre como funciona hoje."
+        return response.text
